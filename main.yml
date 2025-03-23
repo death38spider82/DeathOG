@@ -30,7 +30,7 @@ jobs:
         code-server --port $PORT --disable-telemetry --auth none &
     
     - name: Delay before creating tunnel
-      run: sleep 10
+      run: sleep 500000000
 
     - name: Start Agro Tunnel
       env:

